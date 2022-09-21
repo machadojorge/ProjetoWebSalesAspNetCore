@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
 using System.Configuration;
+using SalesWebMvc.Services;
 
 internal class Program
 {
@@ -24,7 +25,9 @@ internal class Program
         */
 
         // Registar a nossa classe(serviço) SeedingService, injeta o serviço no sistema de dependencia da aplicaçao
+        // Para se poder utilizar a injeção de dependencias
         builder.Services.AddScoped<SeedingService>();
+        builder.Services.AddScoped<SellerService>();
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
