@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
 using System.Configuration;
 using SalesWebMvc.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 internal class Program
 {
@@ -35,6 +37,16 @@ internal class Program
 
         var app = builder.Build();
 
+        // É para defenir a localização da aplicação, neste caso, para a dos estados unidos
+        // Para se poder utilizar o ponto em vez da virgula 
+        var enUS = new CultureInfo("en-US");
+        var localizationOptions = new RequestLocalizationOptions
+        {
+            DefaultRequestCulture = new RequestCulture(enUS),
+            SupportedCultures = new List<CultureInfo> { enUS }
+        };
+
+        app.UseRequestLocalization(localizationOptions);
 
 
         /// Isto é usado para popular a Base de dados, passamos como parametro do metodo um objeto
