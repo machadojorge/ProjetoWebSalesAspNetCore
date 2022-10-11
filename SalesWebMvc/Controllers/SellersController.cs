@@ -142,7 +142,7 @@ namespace SalesWebMvc.Controllers
             }
           
         }
-
+    // adicionar comentario aqui
         public IActionResult Error(string message)
         {
             var viewModel = new ErrorViewModel
