@@ -1,0 +1,1 @@
+Este documento vai servir de exemplo para entender o conflito entre push em versões diferentes
